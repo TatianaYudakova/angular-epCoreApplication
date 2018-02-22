@@ -1,0 +1,24 @@
+<div class="tree">
+
+  <ul>
+    <li *ngFor="let category of categories"
+        [class.selected]="category === selectedCat"
+        (click)="onSelect(category)"
+        (click)="onShow(category)">
+      <span><i class="fa fa-folder-open"></i>{{ category.name }}</span>
+    </li>
+
+  </ul>
+
+</div>
+
+<div *ngIf="selectedCat">
+  <p>{{selectedCat.name}}</p>
+  <ul>
+    <li *ngFor="let doc of selectedDoc">
+      <span>{{ doc.name }}</span>
+    </li>
+  </ul>
+</div>
+
+<app-documents [category]="selectedCat"></app-documents>

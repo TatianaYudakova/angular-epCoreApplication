@@ -1,0 +1,182 @@
+/* TODO refactor CSS styles, order them alphabetical order ASC */
+.header {
+	background: #f3f3f3 none repeat scroll 0 0;
+	height: 55px;
+}
+
+.header-inner {
+	height: 55px !important;
+	padding: 10px;
+}
+
+.banner-right {
+    width: 150px;
+    float: right;
+    text-align: right;
+    margin-right: 0;
+}
+
+.btn-group {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-lang {
+    line-height: 50px;
+    width: 60px;
+    min-width: auto;
+    height: 50px;
+    padding: 0;
+    border-color: #ddd;
+    border-top: none;
+    border-bottom: none;
+}
+
+.logobanner1 {
+    text-transform: uppercase;
+    color: #177BBD;
+    font-weight: 600;
+}
+
+.logoslider {
+    height: 80%;
+    top: 5px;
+    position: relative;
+}
+
+.mainbanner {
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: 5px;
+}
+
+.text600 {
+    font-weight: 600;
+}
+
+.toprow {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.row.toprow [class*='banner-right']:not(:last-child):after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    min-height: 20px;
+}
+
+.page {
+	padding: 0px;
+}
+
+.smallLabel {
+	font-size: 12px;
+	color: #000;
+}
+
+.smallLink {
+	font-size: 12px;
+	color: #5190c0;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.smallLink:hover {
+	color: #32689a;
+}
+
+.toprow {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+/* topHeader */
+.b_topslider {
+	height: 165px;
+}
+
+.container_12 {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	width: 980px;
+}
+
+
+
+.b_topslider__logo a {
+	color: #fff;
+	font: 24px/30px "pfagorasanspro_reg", sans-serif;
+	left: 100px;
+	position: absolute;
+	text-decoration: none;
+	text-shadow: 2px 2px 15px #666;
+	top: 5px;
+}
+
+.b_topslider__logo a i {
+	display: block;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-style: normal;
+}
+
+
+.b_topslider__links {
+	position: absolute;
+	right: 15px;
+	top: 25px;
+	z-index: 10;
+}
+
+
+.b_topslider__links a:first-child {
+	margin-right: 5px;
+	width: 153px;
+}
+
+.b_topslider__links a:first-child::before {
+	background-position: 0 2px;
+	left: 5px;
+}
+
+.b_topslider__links a:hover {
+	background-position: 0 0;
+	color: #000;
+}
+
+.b_topslider__logo a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.b_topslider__links a:hover::before {
+	background-position: 100% -61px;
+}
+
+.b_topslider__links a:first-child:hover::before {
+	background-position: 0 -61px;
+}
+
+.b_topslider .owl-carousel .owl-item img {
+	margin: 0 auto;
+}
+
+.flexButton {
+	padding: 5px 7px;
+	cursor: pointer;
+	font-size: 20px;
+	font-style: bold;
+}
+
+.flexButton:hover {
+	background-color: #e3e3e3;
+}

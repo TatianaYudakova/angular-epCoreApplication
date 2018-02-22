@@ -1,0 +1,96 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "angular-ep-core-application"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "assets/epCoreApplication/webjars/bootstrap/4.0.0/css/bootstrap.min.css",
+        "assets/epCoreApplication/css/bootstrap-table.min.css",
+        "assets/epCoreApplication/css/bootstrap-treeview.min.css",
+        "assets/epCoreApplication/css/main.css",
+        "assets/epCoreApplication/css/styleButtons.css",
+        "assets/epCoreApplication/css/menu.css",
+        "assets/epCoreApplication/css/bootstrap-datepicker.min.css",
+        "assets/epCoreApplication/css/tooltipster.bundle.min.css",
+        "assets/epCoreApplication/css/tree.css",
+        "assets/epCoreApplication/css/entries.css",
+        "assets/epCoreApplication/css/bootstrap-toggle.min.css",
+        "assets/epCoreApplication/css/font-awesome/css/font-awesome.min.css",
+        "assets/epCoreApplication/css/select2.min.css"
+      ],
+      "scripts": [
+        "assets/epCoreApplication/js/utils/tree.js",
+        "assets/epCoreApplication/js/utils/jquery.jsForm.js",
+        "assets/epCoreApplication/js/utils/jquery.serializejson.js",
+        "assets/epCoreApplication/js/ckeditor/ckeditor.js",
+        "assets/epCoreApplication/js/ckeditor/adapters/jquery.js",
+        "assets/epCoreApplication/js/bootstrap-toggle.min.js",
+        "assets/epCoreApplication/js/admin/information-resource.js",
+        "assets/epCoreApplication/js/user-requests/user-requests-statistics.js",
+        "assets/epCoreApplication/js/common.js",
+        "assets/epCoreApplication/js/utils/bootstrap-datepicker.min.js",
+        "assets/epCoreApplication/js/utils/js.cookie.js",
+        "assets/epCoreApplication/js/select2/i18n/ru.js",
+        "assets/epCoreApplication/js/select2/select2.min.js",
+        "assets/epCoreApplication/js/utils/tooltipster.bundle.min.js",
+        "assets/epCoreApplication/js/tableExport.min.js",
+        "assets/epCoreApplication/js/bootstrap-table-export.min.js",
+        "assets/epCoreApplication/js/bootstrap-treeview.min.js",
+        "assets/epCoreApplication/js/bootstrap-table-ru-RU.min.js",
+        "assets/epCoreApplication/js/bootstrap-table.min.js",
+        "assets/epCoreApplication/webjars/bootstrap/4.0.0/js/bootstrap.min.js",
+        "assets/epCoreApplication/webjars/jquery/3.3.1/jquery.js",
+        "assets/epCoreApplication/js/utils/popper.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}
