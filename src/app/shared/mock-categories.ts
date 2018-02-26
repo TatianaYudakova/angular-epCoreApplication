@@ -1,4 +1,4 @@
-import { Category } from '../category';
+import { Category } from './category';
 
 export const CATEGORIES: Category[] = [
 {id: 1, name: 'Тест1', id_doc: [1,2,4], id_lan: 1, id_access: 1},
