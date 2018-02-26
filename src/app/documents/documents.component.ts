@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Document } from '../document';
-import { DOCUMENTS } from '../mock-documents';
-import { Category } from '../category';
+import { Document } from '../shared/document';
+import { DOCUMENTS } from '../shared/mock-documents';
+import { Category } from '../shared/category';
 
 
 @Component({
@@ -18,16 +18,6 @@ export class DocumentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  onShow(category: Category): void {
-    for (let i = 0 ; i < category.id_doc.length; i ++) {
-      for(let j = 0; j < this.documents.length; j++) {
-        if(category.id_doc[i] == this.documents[j].id){
-          this.selectedDoc[this.selectedDoc.length] = this.documents[j];
-        }
-      }
-    }
   }
 
 }

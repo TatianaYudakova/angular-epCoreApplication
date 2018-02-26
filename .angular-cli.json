@@ -56,7 +56,9 @@
         "assets/epCoreApplication/js/bootstrap-table.min.js",
         "assets/epCoreApplication/webjars/bootstrap/4.0.0/js/bootstrap.min.js",
         "assets/epCoreApplication/webjars/jquery/3.3.1/jquery.js",
-        "assets/epCoreApplication/js/utils/popper.min.js"
+        "assets/epCoreApplication/js/utils/popper.min.js",
+        "NgModel",
+        "FormsModule"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

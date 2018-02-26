@@ -1,8 +1,8 @@
 import { Component , OnInit } from '@angular/core';
-import { Category } from '../category';
-import { CATEGORIES } from '../mock-categories';
-import { Document } from '../document';
-import { DOCUMENTS } from '../mock-documents';
+import { Category } from '../shared/category';
+import { CATEGORIES } from '../shared/mock-categories';
+import { Document } from '../shared/document';
+import { DOCUMENTS } from '../shared/mock-documents';
 
 @Component({
   selector: 'app-category',
@@ -17,7 +17,7 @@ export class CategoryComponent implements OnInit {
   documents = DOCUMENTS;
   selectedDoc: Document[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
@@ -35,4 +35,10 @@ export class CategoryComponent implements OnInit {
       }
     });
   }
+
+  createCategory(): void {
+
+  }
+
+
 }
