@@ -8,5 +8,5 @@ export const CATEGORIES: Category[] = [
 {id: 5, name: 'Тест5', id_doc: [1]},
 {id: 6, name: 'Тест6', id_doc: [3,4]},
 {id: 7, name: 'Тест7', id_doc: [4]},
-{id: 8, name: 'Тест8', id_doc: [1,3]}
+{id: 8, name: 'Тест8', id_doc: []}
 ];

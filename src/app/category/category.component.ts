@@ -27,13 +27,12 @@ export class CategoryComponent implements OnInit {
   }
 
   onShow(category: Category): void {
-    this.selectedDoc = [];
-    for (let i = 0 ; i < category.id_doc.length; i ++) {
-      for(let j = 0; j < this.documents.length; j++) {
-        if(category.id_doc[i] == this.documents[j].id){
-          this.selectedDoc.push(this.documents[j]);
+    this.selectedDoc = this.documents.filter(document => {
+      for (let i = 0 ; i < category.id_doc.length; i++) {
+        if(document.id == category.id_doc[i]){
+          return true;
         }
       }
-    }
+    });
   }
 }
