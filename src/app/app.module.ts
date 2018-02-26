@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
-import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     CategoryCreateComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModel} from '@angular/forms';
 import { Category } from "../shared/category";
 import {CATEGORIES} from "../shared/mock-categories";
 import {Person} from "../shared/person";
@@ -29,7 +28,7 @@ export class CategoryCreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveCategory(name: NgModel): void {
-  }
+  //saveCategory(name: NgModel): void {
+  //}
 
 }
