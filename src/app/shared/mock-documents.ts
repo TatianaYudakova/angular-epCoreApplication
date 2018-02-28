@@ -1,10 +1,10 @@
 import { Document } from './document';
 
 export const DOCUMENTS: Document[] = [
-{id: 1, name: 'Doc1', content: 'doc_1'},
-{id: 2, name: 'Doc2', content: 'doc_2'},
-{id: 3, name: 'Doc3', content: 'doc_3'},
-{id: 4, name: 'Doc4', content: 'doc_4'},
-{id: 5, name: 'Doc5', content: 'doc_5'},
-{id: 6, name: 'Doc6', content: 'doc_6'},
+  new Document(1, 'Doc1', 'doc_1'),
+  new Document(2, 'Doc2', 'doc_2'),
+  new Document(3, 'Doc3', 'doc_3'),
+  new Document(4, 'Doc4', 'doc_4'),
+  new Document(5, 'Doc5', 'doc_5'),
+  new Document(6, 'Doc6', 'doc_6'),
 ];
