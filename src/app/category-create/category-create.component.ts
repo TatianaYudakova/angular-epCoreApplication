@@ -24,14 +24,14 @@ export class CategoryCreateComponent implements OnInit {
   addCat: false;
   languages = LANGUAGES;
   persons = PERSONS;
-  nameCAT = '';
 
-  cat: Category;
+  nameCAT = '';
+  languageCAT: Language;
 
   items: Category[] = [];
 
   addCategory(): void {
-    this.categoryService.addCategory(this.nameCAT, this.languages[0]);
+    this.categoryService.addCategory(this.nameCAT, this.languageCAT);
   }
 
   ngOnInit() {

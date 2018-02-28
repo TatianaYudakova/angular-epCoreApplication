@@ -12,7 +12,7 @@ export class CategoryService{
     CATEGORIES.sort(function (a:Category, b: Category) {
       return a.id-b.id;
     });
-    CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length-1].id+1, name,language.id));
+    CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length-1].id+1, name, language.id));
   }
 
 }

@@ -7,7 +7,9 @@
         [class.selected]="category === selectedCat"
         (click)="onSelect(category)"
         (click)="onShow(category)">
+      <span>{{category.id}}</span>
       <span><i class="fa fa-folder-open"></i>{{ category.name }}</span>
+      <span>{{category.id_language}}</span>
     </li>
 
   </ul>
