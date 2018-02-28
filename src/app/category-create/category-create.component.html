@@ -25,25 +25,26 @@
           <div class="form-group row">
             <label for="text" class="col-2 col-form-label">Наименование</label>
             <div class="col-10">
-              <input class="form-control" type="text" id="text" name="nameCAT" maxlength="255" [(ngModel)]="nameCAT"/> <!--name="name"-->
+              <input class="form-control" type="text" id="text" name="nameCAT" maxlength="255" [(ngModel)]="nameCAT"/>
             </div>
           </div>
           <div class="form-group row">
             <label for="text" class="col-2 col-form-label">Язык:</label>
             <div class="col-10">
-              <select id="langSelect" class="form-control" name="languageCAT" [(ngModel)]="languageCAT"> <!--[(ngModel)]="languageCAT" #languageCAT="ngModel">-->
+              <select id="langSelect" class="form-control" name="languageCAT" [(ngModel)]="languageCAT">
                 <option *ngFor="let language of languages" [ngValue]="language" [selected]="language === languageCAT">{{language.name}}</option>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-3">
-              <input type="checkbox" name="isPublic" style="width:100px" id="categoryPublic"/> <!--(ngModel)="accesslevel.acess" #accesslevel="ngModel"/-->
+              <p>Общедоступный</p>
+              <input type="checkbox" name="isPublic" style="width:100px" id="categoryPublic" [(ngModel)]="isPublic"/> <!--(ngModel)="accesslevel.acess" #accesslevel="ngModel"/-->
             </div>
-            <div class="col-md-9" id="rolesCategory">
+            <div class="col-md-9" id="rolesCategory" *ngIf="!isPublic">
               <ul class="list-group checked-list-box">
-                <li class="list-group-item roleitem" data-style="button" *ngFor="let person of persons">
-                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox"></i>{{person.name}}
+                <li class="list-group-item roleitem" data-style="button" *ngFor="let person of persons" >
+                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox" [ngClass]="{'active': selectedPerson === person}" (click)="addPerson(person)"/></i>{{person.name}}
                 </li>
               </ul>
             </div>

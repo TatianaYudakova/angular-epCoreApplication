@@ -7,8 +7,6 @@ import {Person} from "../shared/person";
 import {PERSONS} from "../shared/mock-persons";
 import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
-import {AccessLevel} from "../shared/accessLevel";
-import {ACCESSLEVELS} from "../shared/mock-accessLevels";
 import { CategoryService } from "../category.service";
 
 @Component({
@@ -27,11 +25,28 @@ export class CategoryCreateComponent implements OnInit {
 
   nameCAT = '';
   languageCAT: Language;
+  isPublic = false;
+  persons_id: number[] = [];
+  selectedPerson: Person[] = [];
 
   items: Category[] = [];
 
   addCategory(): void {
-    this.categoryService.addCategory(this.nameCAT, this.languageCAT);
+    if(this.isPublic == true){
+      for(let i = 0; i < PERSONS.length; i++){
+        this.persons_id.push(PERSONS[i].id);
+      }
+    } else {
+      for(let i = 0; i < this.selectedPerson.length; i++){
+        this.persons_id.push(this.selectedPerson[i].id);
+      }
+    }
+    this.categoryService.addCategory(this.nameCAT, this.languageCAT, this.isPublic, this.persons_id);
+  }
+
+  addPerson(person: Person): void {
+    this.selectedPerson.push(person);
+    console.log(person);
   }
 
   ngOnInit() {
