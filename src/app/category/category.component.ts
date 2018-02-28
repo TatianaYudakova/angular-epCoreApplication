@@ -27,17 +27,17 @@ export class CategoryComponent implements OnInit {
   }
 
   onShow(category: Category): void {
-    this.selectedDoc = this.documents.filter(document => {
-      for (let i = 0 ; i < category.id_doc.length; i++) {
-        if(document.id == category.id_doc[i]){
-          return true;
+    if(category.id_doc != null) {
+      this.selectedDoc = this.documents.filter(document => {
+        for (let i = 0; i < category.id_doc.length; i++) {
+          if (document.id == category.id_doc[i]) {
+            return true;
+          }
         }
-      }
-    });
-  }
-
-  createCategory(): void {
-
+      });
+    } else {
+      this.selectedDoc = [];
+    }
   }
 
 
