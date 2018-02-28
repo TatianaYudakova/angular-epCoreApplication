@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgModel} from "@angular/forms";
+
 import { Category } from "../shared/category";
 import {CATEGORIES} from "../shared/mock-categories";
 import {Person} from "../shared/person";
@@ -7,28 +9,33 @@ import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
 import {AccessLevel} from "../shared/accessLevel";
 import {ACCESSLEVELS} from "../shared/mock-accessLevels";
+import { CategoryService } from "../category.service";
 
 @Component({
   selector: 'app-category-create',
   templateUrl: './category-create.component.html',
-  styleUrls: ['./category-create.component.css']
+  styleUrls: ['./category-create.component.css'],
+  providers: [CategoryService]
 })
 export class CategoryCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   addCat: false;
-
   languages = LANGUAGES;
   persons = PERSONS;
-  accesslevels = ACCESSLEVELS;
+  nameCAT = '';
 
-  category: Category;
+  cat: Category;
 
-  ngOnInit() {
+  items: Category[] = [];
+
+  addCategory(): void {
+    this.categoryService.addCategory(this.nameCAT, this.languages[0]);
   }
 
-  //saveCategory(name: NgModel): void {
-  //}
+  ngOnInit() {
+    this.items = this.categoryService.getCategories();
+  }
 
 }
