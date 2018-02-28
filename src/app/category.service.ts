@@ -9,9 +9,10 @@ export class CategoryService{
   }
 
   addCategory(name: string, language: Language){
-    console.log(new Category(name, language.id));
-    CATEGORIES.push(new Category(name, language.id));
-    console.log(CATEGORIES);
+    CATEGORIES.sort(function (a:Category, b: Category) {
+      return a.id-b.id;
+    });
+    CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length-1].id+1, name,language.id));
   }
 
 }
