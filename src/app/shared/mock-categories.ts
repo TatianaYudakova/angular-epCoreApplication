@@ -1,12 +1,12 @@
 import { Category } from './category';
 
 export const CATEGORIES: Category[] = [
-{id: 1, name: 'Тест1', id_doc: [1,2,4], id_lan: 1, id_access: 1},
-{id: 2, name: 'Тест2', id_doc: [1,3,4], id_lan: 1, id_access: 2},
-{id: 3, name: 'Тест3', id_doc: [1,3,6], id_lan: 1, id_access: 3},
-{id: 4, name: 'Тест4', id_doc: [1,3,2], id_lan: 1, id_access: 4},
-{id: 5, name: 'Тест5', id_doc: [1], id_lan: 1, id_access: 5},
-{id: 6, name: 'Тест6', id_doc: [3,4], id_lan: 1, id_access: 6},
-{id: 7, name: 'Тест7', id_doc: [4], id_lan: 1, id_access: 6},
-{id: 8, name: 'Тест8', id_doc: [1], id_lan: 1, id_access: 6}
+  new Category(1, 'Тест1', 1, 1, [1,2,4],),
+  new Category(2, 'Тест2', 1, 2, [1,3,4]),
+  new Category(3, 'Тест3', 2, 3, [1,3,6]),
+  new Category(4, 'Тест4', 3, 4, [1,3,2]),
+  new Category(5, 'Тест5', 1, 5, [1]),
+  new Category(6, 'Тест6', 3, 6, [3,4]),
+  new Category(7, 'Тест7', 1, 6, [4]),
+  new Category(8, 'Тест8', 1, 6, [1])
 ];
