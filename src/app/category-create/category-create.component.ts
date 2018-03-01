@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {NgModel} from "@angular/forms";
 
 import { Category } from "../shared/category";
-import {CATEGORIES} from "../shared/mock-categories";
 import {Person} from "../shared/person";
 import {PERSONS} from "../shared/mock-persons";
 import {Language} from "../shared/language";
@@ -20,6 +19,7 @@ export class CategoryCreateComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   addCat: false;
+
   languages = LANGUAGES;
   persons = PERSONS;
 
@@ -28,11 +28,13 @@ export class CategoryCreateComponent implements OnInit {
   isPublic = false;
   persons_id: number[] = [];
   selectedPerson: Person[] = [];
+  category: Category;
 
   items: Category[] = [];
 
   addCategory(): void {
     if(this.isPublic == true){
+      this.persons_id = [];
       for(let i = 0; i < PERSONS.length; i++){
         this.persons_id.push(PERSONS[i].id);
       }
@@ -45,8 +47,23 @@ export class CategoryCreateComponent implements OnInit {
   }
 
   addPerson(person: Person): void {
-    this.selectedPerson.push(person);
-    console.log(person);
+    if(!this.selectedPerson.includes(person)) {
+      this.selectedPerson.push(person);
+    }
+  }
+
+  removeCategory(): void {
+    this.categoryService.deleteCategory(this.category);
+  }
+
+  close(): void {
+    this.addCat = false;
+    this.nameCAT = '';
+    this.isPublic = false;
+    this.persons_id = [];
+    this.selectedPerson = [];
+    this.category = null;
+    this.languageCAT = null;
   }
 
   ngOnInit() {

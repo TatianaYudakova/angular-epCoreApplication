@@ -16,4 +16,10 @@ export class CategoryService{
     CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length-1].id+1, name, language.id, isPublic, persons));
   }
 
+  deleteCategory(category: Category){
+    if(CATEGORIES.includes(category)) {
+      CATEGORIES.splice(CATEGORIES.indexOf(category), 1);
+    }
+  }
+
 }
