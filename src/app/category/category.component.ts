@@ -17,6 +17,8 @@ export class CategoryComponent implements OnInit {
   documents = DOCUMENTS;
   selectedDoc: Document[] = [];
 
+  addCat = false;
+
   constructor() {}
 
   ngOnInit() {

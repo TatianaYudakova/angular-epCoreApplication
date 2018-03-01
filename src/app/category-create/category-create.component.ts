@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {NgModel} from "@angular/forms";
 
 import { Category } from "../shared/category";
@@ -18,7 +18,7 @@ export class CategoryCreateComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) { }
 
-  addCat: false;
+  @Input() addCat: boolean;
 
   languages = LANGUAGES;
   persons = PERSONS;

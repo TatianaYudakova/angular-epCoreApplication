@@ -1,13 +1,3 @@
-<div class="row">
-  <div class="col-md-4">
-    <button id="addCategory" class="abtn abtn--show-all" (click)="addCat = !addCat">Добавить категорию</button>
-    <!--Почему-то не показывается кнопка, перенести потом в другую компоненту
-    <br />
-    <br />
-    <button id="addEntry" class="abtn abtn--show-all hidden">Добавить материал</button>-->
-  </div>
-</div>
-
 <div *ngIf="addCat">
   <!-- <div class="modal" id="categoryModal" role="dialog" data-backdrop="static" aria-hidden="true">-->
   <form id="categoryForm">
