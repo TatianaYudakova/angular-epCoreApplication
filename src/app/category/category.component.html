@@ -7,6 +7,8 @@
   </div>
 </div>
 
+<app-category-create [addCat]="addCategory" (onChanged)="onChanged($event)"></app-category-create>
+
 <div class="tree">
 
   <ul>
@@ -34,7 +36,5 @@
     </li>
   </ul>
 </div>
-
-<app-category-create [addCat]="addCategory" (onChanged)="onChanged($event)"></app-category-create>
 
 <app-documents></app-documents>
