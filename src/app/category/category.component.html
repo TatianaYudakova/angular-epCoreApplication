@@ -1,14 +1,11 @@
 <div class="row">
   <div class="col-md-4">
-    <button id="addCategory" class="abtn abtn--show-all" (click)="addCat = !addCat">Добавить категорию</button>
-    <!--Почему-то не показывается кнопка, перенести потом в другую компоненту
+    <button id="addCategory" class="abtn abtn--show-all" (click)="setAddCatTrue()">Добавить категорию</button>
     <br />
     <br />
-    <button id="addEntry" class="abtn abtn--show-all hidden">Добавить материал</button>-->
+    <button id="addEntry" class="abtn abtn--show-all">Добавить материал</button>
   </div>
 </div>
-
-<app-category-create *ngIf="addCat" [addCat]="addCat"></app-category-create>
 
 <div class="tree">
 
@@ -18,7 +15,7 @@
         (click)="onSelect(category)"
         (click)="onShow(category)">
       <span>{{category.id}}</span>
-      <span><i class="fa fa-folder-open"></i>{{ category.name }}</span>
+      <span><i class="fa fa-folder-open"></i>{{ category.name }} <button (click)="setAddCatTrue()">Редактировать</button></span>
       <span>{{category.id_language}}</span>
       <span>{{category.isPublic}}</span>
       <span>{{category.id_persons}}</span>
@@ -27,6 +24,7 @@
   </ul>
 
 </div>
+
 
 <div *ngIf="selectedCat">
   <p>{{selectedCat.name}}</p>
@@ -37,8 +35,6 @@
   </ul>
 </div>
 
-<div>
-
-</div>
+<app-category-create [addCat]="addCategory" (onChanged)="onChanged($event)"></app-category-create>
 
 <app-documents></app-documents>

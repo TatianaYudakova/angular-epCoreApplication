@@ -17,7 +17,7 @@ export class CategoryComponent implements OnInit {
   documents = DOCUMENTS;
   selectedDoc: Document[] = [];
 
-  addCat = false;
+  addCategory = false;
 
   constructor() {}
 
@@ -42,5 +42,12 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+  setAddCatTrue(): void {
+    this.addCategory = true;
+  }
+
+  onChanged(){
+    this.addCategory = false;
+  }
 
 }

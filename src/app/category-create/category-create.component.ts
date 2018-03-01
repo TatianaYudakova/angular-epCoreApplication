@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {NgModel} from "@angular/forms";
 
 import { Category } from "../shared/category";
@@ -19,6 +19,7 @@ export class CategoryCreateComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   @Input() addCat: boolean;
+  @Output() onChanged = new EventEmitter<boolean>();
 
   languages = LANGUAGES;
   persons = PERSONS;
@@ -56,14 +57,9 @@ export class CategoryCreateComponent implements OnInit {
     this.categoryService.deleteCategory(this.category);
   }
 
-  close(): void {
+  change(increased:any) {
     this.addCat = false;
-    this.nameCAT = '';
-    this.isPublic = false;
-    this.persons_id = [];
-    this.selectedPerson = [];
-    this.category = null;
-    this.languageCAT = null;
+    this.onChanged.emit(true);
   }
 
   ngOnInit() {
