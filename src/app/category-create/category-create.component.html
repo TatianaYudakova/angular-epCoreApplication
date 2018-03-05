@@ -1,4 +1,4 @@
-<div *ngIf="addCat">
+<div *ngIf="addCat" (onChanged)="onChangedCategory($event)">
   <!-- <div class="modal" id="categoryModal" role="dialog" data-backdrop="static" aria-hidden="true">-->
   <form id="categoryForm">
     <div class="modal-dialog modal-lg" role="document">
@@ -45,7 +45,7 @@
             <tr>
               <td style="width:100%"><button type="button" class="abtn btn-danger pull-left" onClick="removeCategory();">Удалить</button></td>
               <td style="display:flex">
-                <button type="button" class="abtn abtn--show-all" (click)="addCategory();">Сохранить</button>
+                <button type="button" class="abtn abtn--show-all" (click)="saveCategory();">Сохранить</button>
                 <button type="button" class="abtn abtn-default leftspaced" (click)="change(false)">Закрыть</button>
               </td>
             </tr>

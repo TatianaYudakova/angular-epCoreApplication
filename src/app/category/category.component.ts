@@ -1,4 +1,4 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Category } from '../shared/category';
 import { CATEGORIES } from '../shared/mock-categories';
 import { Document } from '../shared/document';
@@ -10,6 +10,8 @@ import { DOCUMENTS } from '../shared/mock-documents';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+
+  @Output() onChangedCategory = new EventEmitter();
 
   categories = CATEGORIES;
   selectedCat: Category;
@@ -42,12 +44,21 @@ export class CategoryComponent implements OnInit {
     }
   }
 
-  setAddCatTrue(): void {
+  setAddCatTrue(category: Category): void {
     this.addCategory = true;
+    if(category != null) {
+      this.selectedCat = category;
+    } else {
+      this.selectedCat = new Category(0, '', 0, false, []);
+    }
   }
 
   onChanged(){
     this.addCategory = false;
+  }
+
+  changeCat(){
+    this.onChangedCategory.emit(this.selectedCat);
   }
 
 }

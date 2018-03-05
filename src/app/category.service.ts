@@ -5,16 +5,23 @@ import {Person} from "./shared/person";
 
 export class CategoryService{
 
+  private index: number;
+
   getCategories(): Category[] {
     return CATEGORIES;
   }
 
-  addCategory(name: string, language: Language, isPublic: boolean, persons: number[]){
-    CATEGORIES.sort(function (a:Category, b: Category) {
-      return a.id-b.id;
-    });
-    CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length-1].id+1, name, language.id, isPublic, persons));
-  }
+  addCategory(id: number, name: string, language_id: number, isPublic: boolean, persons: number[]) {
+    if (id == 0) {
+      CATEGORIES.sort(function (a: Category, b: Category) {
+        return a.id - b.id;
+      });
+      CATEGORIES.push(new Category(CATEGORIES[CATEGORIES.length - 1].id + 1, name, language_id, isPublic, persons));
+    } else {
+        this.index = CATEGORIES.findIndex(category => {return category.id == id});
+        CATEGORIES[this.index] = new Category(id, name, language_id, isPublic, persons, CATEGORIES[this.index].id_doc);
+      }
+    }
 
   deleteCategory(category: Category){
     if(CATEGORIES.includes(category)) {
