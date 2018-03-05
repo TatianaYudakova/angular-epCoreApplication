@@ -1,7 +1,5 @@
 import { Category } from "./shared/category";
 import { CATEGORIES } from "./shared/mock-categories";
-import {Language} from "./shared/language";
-import {Person} from "./shared/person";
 
 export class CategoryService{
 
@@ -27,6 +25,7 @@ export class CategoryService{
     if(CATEGORIES.includes(category)) {
       CATEGORIES.splice(CATEGORIES.indexOf(category), 1);
     }
+    console.log(CATEGORIES);
   }
 
 }

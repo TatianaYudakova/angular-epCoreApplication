@@ -1,4 +1,4 @@
-<div *ngIf="addCat" (onChanged)="onChangedCategory($event)">
+<div *ngIf="isAddCategory">
   <!-- <div class="modal" id="categoryModal" role="dialog" data-backdrop="static" aria-hidden="true">-->
   <form id="categoryForm">
     <div class="modal-dialog modal-lg" role="document">
@@ -8,33 +8,33 @@
         <div class="modal-header">
           <h5 class="modal-title">Категории</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true" (click)="change(false)">&times;</span>
+            <span aria-hidden="true" (click)="close(false)">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="form-group row">
             <label for="text" class="col-2 col-form-label">Наименование</label>
             <div class="col-10">
-              <input class="form-control" type="text" id="text" name="nameCAT" maxlength="255" [(ngModel)]="nameCAT"/>
+              <input class="form-control" type="text" id="text" name="nameCAT" maxlength="255" [(ngModel)]="nameCategory"/>
             </div>
           </div>
           <div class="form-group row">
             <label for="text" class="col-2 col-form-label">Язык:</label>
             <div class="col-10">
-              <select id="langSelect" class="form-control" name="languageCAT" [(ngModel)]="languageCAT">
-                <option *ngFor="let language of languages" [ngValue]="language" [selected]="language === languageCAT">{{language.name}}</option>
+              <select id="langSelect" class="form-control" name="languageCAT" [(ngModel)]="languageCategory">
+                <option *ngFor="let language of languages" [ngValue]="language" [selected]="language === languageCategory">{{language.name}}</option>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-3">
               <p>Общедоступный</p>
-              <input type="checkbox" name="isPublic" style="width:100px" id="categoryPublic" [(ngModel)]="isPublic"/> <!--(ngModel)="accesslevel.acess" #accesslevel="ngModel"/-->
+              <input type="checkbox" name="isPublic" style="width:100px" id="categoryPublic" [(ngModel)]="isPublic"/>
             </div>
             <div class="col-md-9" id="rolesCategory" *ngIf="!isPublic">
               <ul class="list-group checked-list-box">
-                <li class="list-group-item roleitem" data-style="button" *ngFor="let person of persons" >
-                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox" [ngClass]="{'active': selectedPerson === person}" (click)="addPerson(person)"/></i>{{person.name}}
+                <li class="list-group-item roleitem" data-style="button" *ngFor="let person of persons">
+                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox" [ngClass]="{'active': selectedPersons === person}" value="true" (click)="addPerson(person.id)"/></i>{{person.name}} <!--[ngClass]="{'active': selectedPersons === person}"-->
                 </li>
               </ul>
             </div>
@@ -46,7 +46,7 @@
               <td style="width:100%"><button type="button" class="abtn btn-danger pull-left" onClick="removeCategory();">Удалить</button></td>
               <td style="display:flex">
                 <button type="button" class="abtn abtn--show-all" (click)="saveCategory();">Сохранить</button>
-                <button type="button" class="abtn abtn-default leftspaced" (click)="change(false)">Закрыть</button>
+                <button type="button" class="abtn abtn-default leftspaced" (click)="close(false)">Закрыть</button>
               </td>
             </tr>
           </table>

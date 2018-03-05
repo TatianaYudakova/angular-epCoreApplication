@@ -7,6 +7,7 @@ import {PERSONS} from "../shared/mock-persons";
 import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
 import { CategoryService } from "../category.service";
+import {CATEGORIES} from "../shared/mock-categories";
 
 @Component({
   selector: 'app-category-create',
@@ -18,75 +19,87 @@ export class CategoryCreateComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) { }
 
-  @Input() addCat: boolean;
-  @Input() cat: Category; //works
+  @Input() isAddCategory: boolean;
   @Output() onChanged = new EventEmitter<boolean>();
+
+  private _category: Category;
+
+  @Input() set category(value: Category) {
+    this._category = value;
+    this.nameCategory = value.name;
+    this.languageCategory = LANGUAGES.find(l => {
+      return l.id == value.id_language;
+    });
+    this.isPublic = value.isPublic;
+    this.persons_id = value.id_persons;
+    this.selectedPersons = PERSONS.filter(p => {
+      for(let i = 0; i < value.id_persons.length; i++){
+        return p.id == value.id_persons[i];
+      }
+    });
+  }
+
+  get category(): Category {
+    return this._category;
+  }
 
   languages = LANGUAGES;
   persons = PERSONS;
 
 
-  nameCAT = '';
-  languageCAT: Language;
+  nameCategory = '';
+  languageCategory: Language;
   isPublic = false;
   persons_id: number[] = [];
-  selectedPerson: Person[] = [];
+  selectedPersons: Person[];
 
   items: Category[] = [];
 
   saveCategory(): void {
+
     if (this.isPublic == true) {
       this.persons_id = [];
       for (let i = 0; i < PERSONS.length; i++) {
         this.persons_id.push(PERSONS[i].id);
       }
-    } else {
-      for (let i = 0; i < this.selectedPerson.length; i++) {
-        this.persons_id.push(this.selectedPerson[i].id);
-      }
     }
-    if(this.cat.id == null) {
-      this.categoryService.addCategory(0, this.nameCAT, this.languageCAT.id, this.isPublic, this.persons_id);
+
+    if(this.category.id == null) {
+      this.categoryService.addCategory(0, this.nameCategory, this.languageCategory.id, this.isPublic, this.persons_id);
     } else {
-      this.categoryService.addCategory(this.cat.id, this.nameCAT, this.languageCAT.id, this.isPublic, this.persons_id);
+      this.categoryService.addCategory(this.category.id, this.nameCategory, this.languageCategory.id, this.isPublic, this.persons_id);
     }
   }
 
-  addPerson(person: Person): void {
-    if(!this.selectedPerson.includes(person)) {
-      this.selectedPerson.push(person);
-    }
+  addPerson(person_id: number): void {
+      if (!this.persons_id.includes(person_id)) {
+        this.persons_id.push(person_id);
+      }
   }
 
   removeCategory(): void {
-    this.categoryService.deleteCategory(this.cat);
+    this.categoryService.deleteCategory(this.category);
   }
 
-  change(increased:any) {
-    this.addCat = false;
+  close(increased:any) {
+    this.isAddCategory = false;
     this.onChanged.emit(true);
-  }
-
-  onChangedCategory() {
-    this.nameCAT = this.cat.name;
-    for(let i = 0; i < LANGUAGES.length; i++){
-      if(LANGUAGES[i].id == this.cat.id_language){
-        this.languageCAT = LANGUAGES[i];
-        break;
-      }
-    }
-    this.isPublic = this.cat.isPublic;
-    this.persons_id = this.cat.id_persons;
-    this.selectedPerson = PERSONS.filter(person => {
-      for(let i = 0; i < this.cat.id_persons.length; i++){
-        return person.id == this.cat.id_persons[i];
+    this.nameCategory = this._category.name;
+    this.languageCategory = LANGUAGES.find(l => {
+      return l.id == this._category.id_language
+    });
+    this.isPublic = this._category.isPublic;
+    this.persons_id = this._category.id_persons;
+    this.selectedPersons = PERSONS.filter(p => {
+      for(let i = 0; i < this._category.id_persons.length; i++){
+        return p.id == this._category.id_persons[i];
       }
     });
-    console.log("Я работаю");
   }
 
   ngOnInit() {
     this.items = this.categoryService.getCategories();
   }
+
 
 }
