@@ -77,22 +77,24 @@ export class CategoryCreateComponent implements OnInit {
       }
   }
 
-  removeCategory(): void {
+  deleteCategory(): void {
+    console.log(this.category);
     this.categoryService.deleteCategory(this.category);
   }
 
   close(increased:any) {
     this.isAddCategory = false;
     this.onChanged.emit(true);
-    this.nameCategory = this._category.name;
+
+    this.nameCategory = this.category.name;
     this.languageCategory = LANGUAGES.find(l => {
-      return l.id == this._category.id_language
+      return l.id == this.category.id_language
     });
-    this.isPublic = this._category.isPublic;
-    this.persons_id = this._category.id_persons;
+    this.isPublic = this.category.isPublic;
+    this.persons_id = this.category.id_persons;
     this.selectedPersons = PERSONS.filter(p => {
-      for(let i = 0; i < this._category.id_persons.length; i++){
-        return p.id == this._category.id_persons[i];
+      for(let i = 0; i < this.category.id_persons.length; i++){
+        return p.id == this.category.id_persons[i];
       }
     });
   }

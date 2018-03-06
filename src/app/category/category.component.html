@@ -7,13 +7,13 @@
   </div>
 </div>
 
-<app-category-create [isAddCategory]="addCategory" [category]="selectedCat" (onChanged)="onChanged($event)"></app-category-create> <!--works-->
+<app-category-create [isAddCategory]="isAddCategory" [category]="selectedCategory" (onChanged)="onChanged($event)"></app-category-create> <!--works-->
 
 <div class="tree">
 
   <ul>
     <li *ngFor="let category of categories"
-        [class.selected]="category === selectedCat"
+        [class.selected]="category === selectedCategory"
         (click)="onSelect(category)"
         (click)="onShow(category)">
       <span>{{category.id}}</span>
@@ -28,8 +28,8 @@
 </div>
 
 
-<div *ngIf="selectedCat">
-  <p>{{selectedCat.name}}</p>
+<div *ngIf="isSelectedCategory">
+  <p>{{selectedCategory.name}}</p>
   <ul>
     <li *ngFor="let doc of selectedDoc">
       <span>{{ doc.name }}</span>

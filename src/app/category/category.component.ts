@@ -13,12 +13,13 @@ import { DOCUMENTS } from '../shared/mock-documents';
 export class CategoryComponent implements OnInit {
 
   categories = CATEGORIES;
-  selectedCat: Category;
+  selectedCategory: Category;
 
   documents = DOCUMENTS;
   selectedDoc: Document[] = [];
 
-  addCategory = false;
+  isAddCategory = false;
+  isSelectedCategory = false;
 
   constructor() {}
 
@@ -26,7 +27,8 @@ export class CategoryComponent implements OnInit {
   }
 
   onSelect(category: Category): void {
-    this.selectedCat = category;
+    this.selectedCategory = category;
+    this.isSelectedCategory = true;
   }
 
   onShow(category: Category): void {
@@ -44,16 +46,17 @@ export class CategoryComponent implements OnInit {
   }
 
   setAddCategoryTrue(category: Category): void {
-    this.addCategory = true;
+    this.isAddCategory = true;
     if(category != null) {
-      this.selectedCat = category;
+      this.selectedCategory = category;
     } else {
-      this.selectedCat = new Category(0, '', 0, false, []);
+      this.selectedCategory = new Category(0, '', 0, false, []);
     }
   }
 
   onChanged(){
-    this.addCategory = false;
+    this.isAddCategory = false;
+    this.isSelectedCategory = false;
   }
 
 }

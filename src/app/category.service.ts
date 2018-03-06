@@ -24,8 +24,8 @@ export class CategoryService{
   deleteCategory(category: Category){
     if(CATEGORIES.includes(category)) {
       CATEGORIES.splice(CATEGORIES.indexOf(category), 1);
+      console.log(CATEGORIES);
     }
-    console.log(CATEGORIES);
   }
 
 }

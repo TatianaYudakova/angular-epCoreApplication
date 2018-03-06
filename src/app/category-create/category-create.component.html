@@ -34,7 +34,7 @@
             <div class="col-md-9" id="rolesCategory" *ngIf="!isPublic">
               <ul class="list-group checked-list-box">
                 <li class="list-group-item roleitem" data-style="button" *ngFor="let person of persons">
-                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox" [ngClass]="{'active': selectedPersons === person}" value="true" (click)="addPerson(person.id)"/></i>{{person.name}} <!--[ngClass]="{'active': selectedPersons === person}"-->
+                  <i class="checkbox fa fa-lg fa-square-o pull-right"><input type="checkbox" [ngClass]="{'active': selectedPersons === person}" value="true" (click)="addPerson(person.id)"/></i>{{person.name}}
                 </li>
               </ul>
             </div>
@@ -43,7 +43,7 @@
         <div class="modal-footer">
           <table>
             <tr>
-              <td style="width:100%"><button type="button" class="abtn btn-danger pull-left" onClick="removeCategory();">Удалить</button></td>
+              <td style="width:100%"><button type="button" class="abtn btn-danger pull-left" (click)="deleteCategory();" (click)="close(false)">Удалить</button></td>
               <td style="display:flex">
                 <button type="button" class="abtn abtn--show-all" (click)="saveCategory();">Сохранить</button>
                 <button type="button" class="abtn abtn-default leftspaced" (click)="close(false)">Закрыть</button>
