@@ -8,6 +8,7 @@ import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
 import { CategoryService } from "../category.service";
 import {CATEGORIES} from "../shared/mock-categories";
+import {NgxSmartModalService} from "ngx-smart-modal";
 
 @Component({
   selector: 'app-category-create',
@@ -102,6 +103,5 @@ export class CategoryCreateComponent implements OnInit {
   ngOnInit() {
     this.items = this.categoryService.getCategories();
   }
-
 
 }

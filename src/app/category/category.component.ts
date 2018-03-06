@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   selectedDoc: Document[] = [];
 
   isAddCategory = false;
-  isSelectedCategory = false;
+  isSelectedCategory = true;
 
   constructor() {}
 
