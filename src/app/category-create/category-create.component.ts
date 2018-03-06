@@ -57,18 +57,10 @@ export class CategoryCreateComponent implements OnInit {
   items: Category[] = [];
 
   saveCategory(): void {
-
-    if (this.isPublic == true) {
-      this.persons_id = [];
-      for (let i = 0; i < PERSONS.length; i++) {
-        this.persons_id.push(PERSONS[i].id);
-      }
-    }
-
     if(this.category.id == null) {
-      this.categoryService.addCategory(0, this.nameCategory, this.languageCategory.id, this.isPublic, this.persons_id);
+      this.categoryService.addCategory(0, this.nameCategory, this.languageCategory.id, this.isPublic, this.getListOfPersonsId());
     } else {
-      this.categoryService.addCategory(this.category.id, this.nameCategory, this.languageCategory.id, this.isPublic, this.persons_id);
+        this.categoryService.addCategory(this.category.id, this.nameCategory, this.languageCategory.id, this.isPublic, this.getListOfPersonsId());
     }
   }
 
@@ -104,4 +96,13 @@ export class CategoryCreateComponent implements OnInit {
     this.items = this.categoryService.getCategories();
   }
 
+  private getListOfPersonsId() {
+    if (this.isPublic == true) {
+      this.persons_id = [];
+      for (let i = 0; i < PERSONS.length; i++) {
+        this.persons_id.push(PERSONS[i].id);
+      }
+    }
+    return this.persons_id;
+  }
 }

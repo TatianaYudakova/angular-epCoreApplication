@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-4">
-    <button id="addCategory" class="abtn abtn--show-all" (click)="setAddCategoryTrue(null)">Добавить категорию</button>      <br />
+    <button id="addCategory" class="abtn abtn--show-all" (click)="setAddCategoryTrue(null)">Добавить категорию</button>
+    <br />
     <br />
     <button id="addEntry" class="abtn abtn--show-all">Добавить материал</button>
   </div>
@@ -16,7 +17,7 @@
         (click)="onSelect(category)"
         (click)="onShow(category)">
       <span>{{category.id}}</span>
-      <span><i class="fa fa-folder-open"></i>{{ category.name }} <button (click)="setAddCategoryTrue(category)">Редактировать</button></span>
+      <span><i class="fa fa-folder-open"></i>{{ category.name }} <button>Добавить подкатегорию</button><button (click)="setAddCategoryTrue(category)">Редактировать</button></span>
       <span>{{category.id_language}}</span>
       <span>{{category.isPublic}}</span>
       <span>{{category.id_persons}}</span>
