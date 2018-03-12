@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
+import { DocumentCreateComponent } from './document-create/document-create.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
     AppComponent,
     CategoryComponent,
     DocumentsComponent,
-    CategoryCreateComponent
+    CategoryCreateComponent,
+    DocumentCreateComponent
   ],
   imports: [
     BrowserModule,

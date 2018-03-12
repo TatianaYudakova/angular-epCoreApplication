@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-md-4">
     <app-category></app-category>
@@ -6,49 +5,3 @@
 </div>
 
 
-<div class="modal" id="entryModal" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true">
-  <form id="entryForm" enctype="multipart/form-data">
-    <div class="" style="width:100%;height:100%;margin:0;padding:50px;" role="document">
-      <input name="id" type="hidden" id="entryIdField" />
-      <input id="categoryId" name="categoryId" type="hidden" />
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addEntryLabel">Добавление записи</h5>
-          <button type="button" class="close" onClick="closeEntryModal();" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group row">
-            <label for="title" class="col-2 col-form-label">Заголовок</label>
-            <div class="col-10">
-              <input class="form-control" type="text" name="title" id="title" />
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="content" class="col-2 col-form-label">Содержание</label>
-            <div class="col-10">
-              <textarea class="form-control" name="content" id="content"></textarea>
-            </div>
-          </div>
-          <div class="form-group row inline mx-1" id="attachDiv">
-            <label class="col-form-label">Добавить вложение</label>
-            <div class="">
-              <input class="abtn abtn--show-all pull-left mx-3" type="button" onclick="document.getElementById('entryDocument').click();" value="Выбрать" />
-              <input class="form-control entryDocument" type="file" name="entryDocument" id="entryDocument" style="display: none;" />
-            </div>
-          </div>
-          <div id="attachList">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <!--button type="button" class="btn btn-primary" onClick="downloadFile()" th:text="#{button.download}"></button-->
-          <button type="button" class="abtn abtn--show-all" onClick="updateEntry()">Сохранить</button>
-          <button type="button" class="abtn abtn-default" onClick="closeEntryModal()">Закрыть</button>
-        </div>
-      </div>
-
-
-    </div>
-  </form>
-</div>

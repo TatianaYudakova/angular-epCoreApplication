@@ -3,11 +3,12 @@
     <button id="addCategory" class="abtn abtn--show-all" (click)="setAddCategoryTrue(null)">Добавить категорию</button>
     <br />
     <br />
-    <button id="addEntry" class="abtn abtn--show-all">Добавить материал</button>
   </div>
 </div>
 
-<app-category-create [isAddCategory]="isAddCategory" [category]="selectedCategory" (onChanged)="onChanged($event)"></app-category-create> <!--works-->
+<app-documents [category]="selectedCategory"></app-documents>
+
+<app-category-create [isAddCategory]="isAddCategory" [category]="selectedCategory" (onChanged)="onChanged($event)"></app-category-create>
 
 <div class="tree">
 
@@ -36,5 +37,3 @@
     </li>
   </ul>
 </div>
-
-<app-documents></app-documents>

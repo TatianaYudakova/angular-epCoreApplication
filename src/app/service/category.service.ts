@@ -1,5 +1,5 @@
-import { Category } from "./shared/category";
-import { CATEGORIES } from "./shared/mock-categories";
+import { Category } from "../shared/category";
+import { CATEGORIES } from "../shared/mock-categories";
 
 export class CategoryService{
 
@@ -24,7 +24,6 @@ export class CategoryService{
   deleteCategory(category: Category){
     if(CATEGORIES.includes(category)) {
       CATEGORIES.splice(CATEGORIES.indexOf(category), 1);
-      console.log(CATEGORIES);
     }
   }
 

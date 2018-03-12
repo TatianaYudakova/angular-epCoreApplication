@@ -6,9 +6,8 @@ import {Person} from "../shared/person";
 import {PERSONS} from "../shared/mock-persons";
 import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
-import { CategoryService } from "../category.service";
+import { CategoryService } from "../service/category.service";
 import {CATEGORIES} from "../shared/mock-categories";
-import {NgxSmartModalService} from "ngx-smart-modal";
 
 @Component({
   selector: 'app-category-create',
