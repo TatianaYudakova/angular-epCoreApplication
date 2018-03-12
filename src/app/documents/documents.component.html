@@ -1,7 +1,16 @@
+<div *ngIf="isSelectedCategory">
 <div class="row">
   <div class="col-md-4">
     <button id="addEntry" class="abtn abtn--show-all" (click)="setAddDocumentTrue()">Добавить материал</button>
   </div>
 </div>
 
+  <p>{{category.name}}</p>
+  <ul>
+    <li *ngFor="let doc of selectedDoc">
+      <span>{{ doc.name }}</span>
+    </li>
+  </ul>
+
 <app-document-create [isAddDocument]="isAddDocument" (onChangedDoc)="onChangedDoc($event)" [category_dc]="category"></app-document-create>
+</div>

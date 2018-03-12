@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   selectedDoc: Document[] = [];
 
   isAddCategory = false;
-  isSelectedCategory = true;
+  isSelectedCategory = false;
 
   constructor() {}
 
@@ -31,7 +31,7 @@ export class CategoryComponent implements OnInit {
     this.isSelectedCategory = true;
   }
 
-  onShow(category: Category): void {
+  /*onShow(category: Category): void {
     if(category.id_doc != null) {
       this.selectedDoc = this.documents.filter(document => {
         for (let i = 0; i < category.id_doc.length; i++) {
@@ -43,7 +43,7 @@ export class CategoryComponent implements OnInit {
     } else {
       this.selectedDoc = [];
     }
-  }
+  }*/
 
   setAddCategoryTrue(category: Category): void {
     this.isAddCategory = true;

@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<app-documents [category]="selectedCategory"></app-documents>
+<app-documents [category]="selectedCategory" [isSelectedCategory]="isSelectedCategory"></app-documents>
 
 <app-category-create [isAddCategory]="isAddCategory" [category]="selectedCategory" (onChanged)="onChanged($event)"></app-category-create>
 
@@ -15,8 +15,7 @@
   <ul>
     <li *ngFor="let category of categories"
         [class.selected]="category === selectedCategory"
-        (click)="onSelect(category)"
-        (click)="onShow(category)">
+        (click)="onSelect(category)">
       <span>{{category.id}}</span>
       <span><i class="fa fa-folder-open"></i>{{ category.name }} <button>Добавить подкатегорию</button><button (click)="setAddCategoryTrue(category)">Редактировать</button></span>
       <span>{{category.id_language}}</span>
@@ -26,14 +25,4 @@
 
   </ul>
 
-</div>
-
-
-<div *ngIf="isSelectedCategory">
-  <p>{{selectedCategory.name}}</p>
-  <ul>
-    <li *ngFor="let doc of selectedDoc">
-      <span>{{ doc.name }}</span>
-    </li>
-  </ul>
 </div>

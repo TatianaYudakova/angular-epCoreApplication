@@ -11,18 +11,37 @@ import { Category } from '../shared/category';
 })
 export class DocumentsComponent implements OnInit {
 
-  private _category: Document;
+  private _category: Category;
+  private _isSelectedCategory: boolean;
 
-  @Input() set category(value: Document){
+  isSelected = false;
+
+  @Input() set category(value: Category){
     this._category = value;
+    this.selectedDoc = this.documents.filter(document => {
+      for (let i = 0; i < value.id_doc.length; i++) {
+        if (document.id == value.id_doc[i]) {
+          return true;
+        }
+      }
+    });
   }
 
-  get category(){
+  get category(): Category {
     return this._category;
   }
 
+  @Input() set isSelectedCategory(value: boolean) {
+    this._isSelectedCategory = value;
+    this.isSelected = value;
+  }
+
+  get isSelectedCategory(): boolean {
+    return this._isSelectedCategory;
+  }
+
   documents = DOCUMENTS;
-  selectedDoc: Document[];
+  selectedDoc: Document[] = [];
 
   isAddDocument = false;
 
