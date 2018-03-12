@@ -7,7 +7,6 @@ import {PERSONS} from "../shared/mock-persons";
 import {Language} from "../shared/language";
 import {LANGUAGES} from "../shared/mock-languages";
 import { CategoryService } from "../service/category.service";
-import {CATEGORIES} from "../shared/mock-categories";
 
 @Component({
   selector: 'app-category-create',

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {DocumentService} from "../service/document.service";
 import {Document} from "../shared/document";
-import {DOCUMENTS} from "../shared/mock-documents";
 import {Category} from "../shared/category";
 
 @Component({
@@ -38,7 +37,7 @@ export class DocumentCreateComponent implements OnInit {
 
   addDocument() {
     this.documentService.addDocument(0, this.nameDocument, this.contentDocument);
-    this._category_dc.id_doc.push(DOCUMENTS[DOCUMENTS.length-1].id);
+    this.category_dc.id_doc.push(this.documents[this.documents.length-1].id);
   }
 
   closeModal(increased: any) {
